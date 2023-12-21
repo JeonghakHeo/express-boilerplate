@@ -17,12 +17,6 @@ module.exports = {
       "name": "Bob Johnson",
       "age": 22,
       "email": "bob.johnson@example.com"
-    },
-    {
-      "id": 33,
-      "name": "d",
-      "age": 1,
-      "email": "2"
     }
   ],
   "products": [

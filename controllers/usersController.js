@@ -29,6 +29,8 @@ const deleteUser = (req, res) => {
   try {
     const { id } = req.params
 
+    const userToDelete = users.find(user => user.id === parseInt(id, 10))
+
     const updatedUsers = users.filter(user => user.id !== parseInt(id, 10))
 
     const dataFilePath = path.join(__dirname, '../data/dummyData.js')
@@ -36,7 +38,7 @@ const deleteUser = (req, res) => {
 
     fs.writeFileSync(dataFilePath, updatedData, 'utf-8')
 
-    res.status(200).json({ message: 'User deleted successfully', users: updatedUsers })
+    res.status(200).json({ message: 'User deleted successfully', users: userToDelete })
   } catch (error) {
     console.log('Error deleteing user', error)
     res.status(500).json({ error: 'Internal Server Error'})
